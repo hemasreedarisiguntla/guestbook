@@ -12,7 +12,7 @@ public class GuestController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/guest")
-    public void addGuest() {
-
+    public Guest addGuest(@RequestBody Guest guest) {
+        return guest;
     }
 }
