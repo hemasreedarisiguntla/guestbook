@@ -11,16 +11,12 @@ import java.util.List;
 @RequestMapping("/guest")
 public class GuestController {
 
-    private List<Guest> guestList;
+    private List<Guest> guestList = new ArrayList<>();
 
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public Guest addGuest(@RequestBody Guest guest) {
-        if (this.guestList == null) {
-            this.guestList = new ArrayList<>();
-        }
-
         guestList.add(guest);
         return guest;
     }
