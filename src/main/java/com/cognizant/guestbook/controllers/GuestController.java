@@ -2,30 +2,30 @@ package com.cognizant.guestbook.controllers;
 
 import com.cognizant.guestbook.model.Guest;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/guest")
 public class GuestController {
 
-    List<Guest> guestList;
+    private List<Guest> guestList;
 
-    public GuestController() {
-        this.guestList = new ArrayList<>();
-    }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/guest")
+    @PostMapping
     public Guest addGuest(@RequestBody Guest guest) {
+        if (this.guestList == null) {
+            this.guestList = new ArrayList<>();
+        }
+
         guestList.add(guest);
         return guest;
     }
 
+    @GetMapping
     public List<Guest> getAllGuests() {
         return guestList;
     }
