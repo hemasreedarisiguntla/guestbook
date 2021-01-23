@@ -17,3 +17,8 @@ Implement 2 features:
 
 Any visitor can post their name and a comment to the Guestbook.
 All visitors can see a list of every entry in the Guestbook.
+
+Heroku links:
+https://guestbook-ofe.herokuapp.com/guest
+
+https://heroku-guestbook.herokuapp.com/guest
